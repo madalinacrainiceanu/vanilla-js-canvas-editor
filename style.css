@@ -1,0 +1,225 @@
+/* resetare margini */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9; 
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 15px;
+    gap: 15px;
+}
+
+/* stilizare panouri laterale */
+.toolbar, .sidebar-right {
+    width: 280px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow-y: auto;
+    /* tranzitie lina la hover pe panou */
+    transition: box-shadow 0.3s ease;
+}
+
+.toolbar:hover, .sidebar-right:hover {
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+h2, h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #483d8b; /* indigo */
+    border-bottom: 2px solid #e6e6fa;
+    padding-bottom: 8px;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+}
+
+/* dinamizare butoane */
+button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #f0f0f5;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease; /* tranzitie mai rapida */
+    color: #444;
+    font-weight: 500;
+    position: relative;
+    top: 0;
+}
+
+button:hover {
+    background-color: #e0e0ea;
+    transform: translateY(-2px); /* se ridica putin la hover */
+}
+
+/* efect de apasare (tactil) */
+button:active {
+    transform: translateY(1px) !important; /* se lasa in jos la click */
+    box-shadow: none !important;
+}
+
+/* buton activ instrument */
+button.active {
+    background-color: #6a5acd; /* SlateBlue */
+    color: white;
+    box-shadow: 0 4px 10px rgba(106, 90, 205, 0.3);
+}
+
+/* clase pentru culori specifice */
+.action-btn.orange {
+    background-color: #ff9f43;
+    color: white;
+}
+.action-btn.orange:hover { background-color: #e68a30; box-shadow: 0 4px 10px rgba(255, 159, 67, 0.3); }
+
+.action-btn.red {
+    background-color: #ee5253;
+    color: white;
+}
+.action-btn.red:hover { background-color: #d63e3f; box-shadow: 0 4px 10px rgba(238, 82, 83, 0.3); }
+
+
+#btnDelete {
+    background-color: #ff6b6b;
+    color: white;
+    margin-top: 5px;
+}
+#btnDelete:hover { background-color: #fa5252; box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3); }
+
+#btnDelete:disabled {
+    background-color: #ffcccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+#btnUpdate {
+    background-color: #20bf6b; /* verde smarald */
+    color: white;
+    margin-top: 10px;
+}
+#btnUpdate:hover { background-color: #1a9f59; box-shadow: 0 4px 10px rgba(32, 191, 107, 0.3); }
+
+/* input-uri */
+input[type="number"], input[type="color"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+input[type="number"]:focus {
+    border-color: #6a5acd;
+}
+
+input[type="color"] {
+    height: 40px;
+    padding: 2px;
+    cursor: pointer;
+    background: white;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 5px 0;
+}
+
+/* zona canvas */
+.canvas-wrapper {
+    flex-grow: 1;
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+}
+
+canvas {
+    background-color: #ffffff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    cursor: crosshair;
+}
+
+/* dinamizare lista */
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fafafa;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+select:focus {
+    border-color: #6a5acd;
+}
+
+/* evidentiere element selectat in lista */
+select option:checked {
+    background-color: #6a5acd;
+    color: white;
+    font-weight: bold;
+}
+
+/* dinamizare panou proprietati */
+#propertiesPanel {
+    /* adaugam tranzitie pentru opacitate */
+    transition: opacity 0.3s ease-in-out;
+    opacity: 1;
+}
+
+.disabled {
+    opacity: 0.3 !important;
+    pointer-events: none;
+}
+
+.prop-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.prop-row input {
+    width: 60%;
+    text-align: center;
+}

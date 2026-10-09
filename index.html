@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 1 Editor Raster</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="toolbar">
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <img src="media/logo.jpg" alt="Logo Aplicatie" style="width: 100px; height: auto; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            </div>
+
+            <h2>instrumente</h2>
+            
+            <div class="group">
+                <label>forma:</label>
+                <button type="button" id="btnRect" class="tool-btn active">dreptunghi</button>
+                <button type="button" id="btnEllipse" class="tool-btn">elipsa</button>
+                <button type="button" id="btnLine" class="tool-btn">linie</button>
+            </div>
+
+            <hr>
+
+            <div class="group">
+                <label for="strokeColor">culoare contur:</label>
+                <input type="color" id="strokeColor" value="#000000">
+            </div>
+
+            <div class="group">
+                <label for="lineWidth">grosime linie:</label>
+                <input type="number" id="lineWidth" value="2" min="1" max="50">
+            </div>
+
+            <div class="group">
+                <label for="bgColor">culoare fundal:</label>
+                <input type="color" id="bgColor" value="#ffffff">
+            </div>
+
+            <hr>
+
+            <div class="group">
+                <label>actiuni rapide:</label>
+                <button type="button" id="btnUndo" class="action-btn orange">anuleaza ultima</button>
+                <button type="button" id="btnClear" class="action-btn red">curata tot</button>
+            </div>
+
+            <hr>
+
+            <div class="group">
+                <label>export:</label>
+                <button type="button" id="btnSavePng">salveaza png</button>
+                <button type="button" id="btnSaveSvg">exporta svg</button>
+            </div>
+        </div>
+
+        <div class="canvas-wrapper">
+            <canvas id="editorCanvas" width="800" height="600"></canvas>
+        </div>
+
+        <div class="sidebar-right">
+            <h3>lista figuri</h3>
+            <select id="shapeList" size="15"></select>
+            
+            <button type="button" id="btnDelete" disabled>sterge figura</button>
+
+            <hr>
+
+            <h3>proprietati</h3>
+            <div id="propertiesPanel" class="disabled">
+                <div class="prop-row">
+                    <label>x:</label>
+                    <input type="number" id="propX">
+                </div>
+                <div class="prop-row">
+                    <label>y:</label>
+                    <input type="number" id="propY">
+                </div>
+                <div class="prop-row">
+                    <label>dim 1 (w/x2):</label>
+                    <input type="number" id="propW">
+                </div>
+                <div class="prop-row">
+                    <label>dim 2 (h/y2):</label>
+                    <input type="number" id="propH">
+                </div>
+                <button type="button" id="btnUpdate">actualizeaza</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
