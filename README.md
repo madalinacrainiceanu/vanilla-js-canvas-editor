@@ -74,3 +74,8 @@ vanilla-js-canvas-editor/
 - Add shape rotation and resizing handles
 - Add persistent projects using local storage
 - Improve responsive behavior for smaller screens
+
+## Screenshot
+
+![Vanilla JavaScript Canvas Editor](docs/screenshots/canvas-editor.png)
+
